@@ -1,19 +1,34 @@
 import sys
 sys.path.append('../doubly_linked_list')
 from doubly_linked_list import DoublyLinkedList
-
+"""
+Data Structure where You add data in and remoe data out 
+FIFO first in first out 
+think of a line
+first piece of data in the queque is the first piece out 
+"""
 
 class Queue:
     def __init__(self):
         self.size = 0
         # Why is our DLL a good choice to store our elements?
-        # self.storage = ?
+        self.storage = DoublyLinkedList()
 
+#push 
     def enqueue(self, value):
-        pass
-
+        self.storage.add_to_head(value)
+        self.size += 1
+        
+            
+        
+#pop
     def dequeue(self):
-        pass
+        if self.size > 0:
+            self.size -= 1
+            return self.storage.remove_from_head()
+        
+        else: 
+            return None
 
     def len(self):
-        pass
+        return self.size
